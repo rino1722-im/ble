@@ -71,7 +71,7 @@ function sendData(e)//データ送信の設定
 
       const encoder = new TextEncoder('utf-8');
       let ch = characteristics[0];
-      ch.writeValue(encoder.encode("Data from PC")).then(
+      ch.writeValue(encoder.encode("Right")).then(
         char => {ch.startNotifications();}
       );
     }
