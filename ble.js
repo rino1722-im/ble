@@ -64,7 +64,7 @@ async function onButtonClick()
   }
 }
 
-function sendData(e)//データ送信の設定
+/*function sendData(e)//データ送信の設定
 {
   if ( isConnected && characteristics != null ){
     if ( characteristics[0] != null ){
@@ -79,7 +79,48 @@ function sendData(e)//データ送信の設定
 }
 
 let btn = document.getElementById('send_button');
+btn.addEventListener('click',sendData );*/
+
+function sendData(e){//データ送信の設定
+  if ( isConnected && characteristics != null ){
+    if ( characteristics[0] != null ){
+      const encoder = new TextEncoder('utf-8');
+      let ch = characteristics[0];
+      ch.writeValue(encoder.encode("Light")).then(
+        char => {ch.startNotifications();}
+      );
+    }
+  }
+
+function sendData_r(e){//データ送信の設定
+  if ( isConnected && characteristics != null ){
+    if ( characteristics[0] != null ){
+      const encoder = new TextEncoder('utf-8');
+      let ch = characteristics[0];
+      ch.writeValue(encoder.encode("Red")).then(
+        char => {ch.startNotifications();}
+      );
+    }
+  }
+
+
+  function sendData_b(e){//データ送信の設定
+    if ( isConnected && characteristics != null ){
+      if ( characteristics[0] != null ){
+        const encoder = new TextEncoder('utf-8');
+        let ch = characteristics[0];
+        ch.writeValue(encoder.encode("Blue")).then(
+          char => {ch.startNotifications();}
+        );
+      }
+    }
+
+let btn = document.getElementById('send_button');
+let btn1 = document.getElementById('send_button1');
+let btn2 = document.getElementById('send_button2');
 btn.addEventListener('click',sendData );
+btn1.addEventListener('click',sendData_r );
+btn2.addEventListener('click',sendData_b );
 
 
 async function sleep(ms) {
