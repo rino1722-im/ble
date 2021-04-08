@@ -1,6 +1,6 @@
 let device = null;
 let chracteristics = null;
-let isConnetted = false;
+let isConnectted = false;
 
 async function onButtonClick()
 {
